@@ -18,13 +18,7 @@ def sendDingTalkMsg(text: str):
     :param text: 消息内容
     :return:
     """
-    # 测试账号
-    # SEC2458d665158be0fa4f432e3a1fb13b0dc3361b935aa3f19e035afe40aefb05a9
-    # https://oapi.dingtalk.com/robot/send?access_token=7580e74a902f9443a19d0ce649aa0f64e349adddee9ab31f4a3b95f80ced377c
-
-    # 监测数据-14th sports
-    # SEC5a31cdc80ab049009f171f3980ef1cdc4725f8dc14a1b8f4c7bd16aed370deb9
-    # https://oapi.dingtalk.com/robot/send?access_token=cfc40024d48b87e80c63e8b55dd05ac11a5ec89651c0d942ebe4b5ae09514c70
+ 
     """第一: 发送文本-->
         send_text(self,msg,is_at_all=False,at_mobiles=[],at_dingtalk_ids=[],is_auto_at=True)
             msg: 发送的消息
@@ -44,8 +38,8 @@ def sendDingTalkMsg(text: str):
 # 获取链接,填入urlToken 和 secret
 def getSIGN():
     timestamp = str(round(time.time() * 1000))
-    urlToken = "https://oapi.dingtalk.com/robot/send?access_token=cfc40024d48b87e80c63e8b55dd05ac11a5ec89651c0d942ebe4b5ae09514c70"
-    secret = 'SEC5a31cdc80ab049009f171f3980ef1cdc4725f8dc14a1b8f4c7bd16aed370deb9'
+    urlToken = "https://oapi.dingtalk.com/robot/send?access_token=************************************"
+    secret = '************************************"'
     secret_enc = secret.encode('utf-8')
     string_to_sign = '{}\n{}'.format(timestamp, secret)
     string_to_sign_enc = string_to_sign.encode('utf-8')
@@ -105,11 +99,11 @@ def run():
     logging.error('网页加载完毕')
     # 填入用户名
     element = browser.find_element_by_id('username')
-    element.send_keys('jiankong')
+    element.send_keys('******')
 
     # 填入密码
     element = browser.find_element_by_id('password')
-    element.send_keys(r'vuMgeo\3Mrh')
+    element.send_keys(r'*******')
 
     # 点击登录按钮
     element = browser.find_element_by_xpath('/html/body/div/div[3]/ul/li[4]/a')
@@ -146,14 +140,7 @@ def run():
             if selectThreat([data_esid, ]) is None:
                 insertThreat(
                     [src_ip, '', assets_ip, region, submit_method, attack_types, hazard_level, attack_time, data_esid])
-                """
-                2021-09-13 17:40:08
-                目标系统： 电力交易平台
-                目标地址： 202.100.20.89
-                攻击IP：106.44.246.126  陕西
-                攻击手段： 命令注入
-                攻击次数： 4次
-                """
+
                 text = """
 %s
 目标地址： %s
@@ -176,6 +163,4 @@ if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s',
                         level=logging.ERROR)
     run()
-    # selectThreat(['1235888849508178_175.184.167.224_33232_186.186.186.163_18080_0', ])
-    # insertThreat([2,2,2,2,2,2,2,2,2])
     conn.close()
