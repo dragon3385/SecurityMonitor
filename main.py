@@ -92,7 +92,7 @@ def run():
     options.add_experimental_option('useAutomationExtension', False)  # 谷歌浏览器版本在V76以及以上解决办法
     options.add_experimental_option('excludeSwitches', ['enable-automation'])  # 谷歌浏览器版本在V76以及以上解决办法
     browser = webdriver.Chrome(chrome_options=options)
-    browser.get("https://186.186.186.103:60001/")
+    browser.get("https://*.*.*.*:*/")
     # ####################### 登录
     xpath_str_username = '//*[@id="username"]'
     WebDriverWait(browser, 20000).until(EC.visibility_of_element_located((By.XPATH, xpath_str_username)))
